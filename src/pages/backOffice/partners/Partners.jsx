@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import AddButton from '../../../components/global/AddButton'
-import Table from '../../../components/Sponsorships/Table'
+import Table from '../../../components/Partners/Table'
 import Header from '../../../components/global/Header'
 import axios from 'axios'
 
@@ -9,7 +9,7 @@ function Part() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}sponsor/all`)
+        axios.get(`${import.meta.env.VITE_API_URL}partenaire/all`)
         .then(res => {
             setSponsorships(res.data)
         })

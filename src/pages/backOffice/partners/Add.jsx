@@ -13,7 +13,7 @@ function Add() {
         nomEntreprise: '',
         adresse: '',
         numTel: '',
-        TypePartenariat: '',
+        typePartenariat: '',
     })
     const navigate = useNavigate()
 
@@ -26,7 +26,7 @@ function Add() {
 
     const handleSubmit = () => {
 
-        axios.post(`${import.meta.env.VITE_API_URL}speakers`, sponsorship)
+        axios.post(`${import.meta.env.VITE_API_URL}partenaire/save`, sponsorship)
         .then(res => {
            navigate(-1)
         })
@@ -44,12 +44,12 @@ function Add() {
         <BackButton />
         <Input label='Name' type='text' name='nomEntreprise' placeholder='Name' value={sponsorship.nomEntreprise} onChange={handleChange} />
         <Input label='Address' type='text' name='adresse' placeholder='Address' value={sponsorship.adresse} onChange={handleChange} />
-        <Input label='Phone' type='text' name='tel' placeholder='Phone' value={sponsorship.tel} onChange={handleChange} />
+        <Input label='Phone' type='text' name='numTel' placeholder='Phone' value={sponsorship.numTel} onChange={handleChange} />
         <div>
             <label htmlFor="">
                 Type de partenariat
             </label>
-            <select value={sponsorship.TypePartenariat} onChange={handleChange} name='TypePartenariat' id="" className='w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500'>
+            <select value={sponsorship.typePartenariat} onChange={handleChange} name='typePartenariat' id="" className='w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500'>
                 <option value="STRATEGIQUE">STRATEGIQUE</option>
                 <option value="COMMERCIAL">COMMERCIAL</option>
                 <option value="TECHNOLOGIQUE">TECHNOLOGIQUE</option>
